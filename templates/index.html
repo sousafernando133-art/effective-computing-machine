@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Computacional Eficaz</title>
+    <!-- Vinculação correta do CSS no ecossistema Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Conversor Métrico</h1>
+        <p class="subtitulo">Integração Front-end (HTML/CSS) & Back-end (Python/Flask)</p>
+        
+        <form method="POST">
+            <label for="valor">Digite o valor em Metros (m):</label>
+            <input type="number" step="any" name="valor" id="valor" placeholder="Ex: 1.5" required>
+            <button type="submit">Calcular Centímetros</button>
+        </form>
+
+        <!-- Bloco dinâmico: Só exibe se o Python enviar um resultado -->
+        {% if resultado is not none %}
+            <div class="resultado-box">
+                <p><strong>Resultado Processado:</strong></p>
+                <p class="resultado-texto">{{ valor }} metros = <span>{{ resultado }} cm</span></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
